@@ -1,13 +1,9 @@
-"use client";
+type Props = {
+  searchParams: { score?: string };
+};
 
-import { useSearchParams } from "next/navigation";
-
-export default function Result() {
-  const params = useSearchParams();
-
-  const scoreParam = params.get("score");
-  const score = scoreParam ? Number(scoreParam) : 0;
-
+export default function ResultPage({ searchParams }: Props) {
+  const score = Number(searchParams.score || 0);
   const questionsTotal = 20;
 
   function getLevel(score: number) {
@@ -40,86 +36,50 @@ export default function Result() {
   return (
     <main style={{
       minHeight: "100vh",
-      background: "#f8fafc",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       fontFamily: "Arial",
+      background: "#f8fafc",
       padding: 20
     }}>
 
       <div style={{
-        width: "100%",
-        maxWidth: 600,
         background: "white",
-        borderRadius: 16,
         padding: 40,
-        boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-        textAlign: "center"
+        borderRadius: 16,
+        textAlign: "center",
+        width: "100%",
+        maxWidth: 500,
+        boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
       }}>
 
-        {/* LEVEL */}
-        <h2 style={{
-          color: "#6b7280",
-          fontSize: 16
-        }}>
-          Your English Level
+        <h2 style={{ color: "#6b7280" }}>
+          Your level
         </h2>
 
-        <h1 style={{
-          fontSize: 64,
-          margin: "10px 0",
-          color: "#111827"
-        }}>
+        <h1 style={{ fontSize: 64 }}>
           {level}
         </h1>
 
-        {/* SCORE */}
-        <p style={{
-          fontSize: 18,
-          color: "#374151"
-        }}>
+        <p>
           Score: {score} / {questionsTotal}
         </p>
 
-        {/* DESCRIPTION */}
-        <p style={{
-          marginTop: 20,
-          fontSize: 16,
-          color: "#6b7280",
-          maxWidth: 450,
-          marginInline: "auto"
-        }}>
+        <p style={{ marginTop: 15, color: "#6b7280" }}>
           {getDescription(level)}
         </p>
 
-        {/* INFO BLOCK */}
-        <div style={{
-          marginTop: 30,
-          background: "#f1f5f9",
-          padding: 20,
-          borderRadius: 12,
-          fontSize: 14,
-          color: "#334155"
+        <a href="/test" style={{
+          display: "inline-block",
+          marginTop: 25,
+          padding: "12px 20px",
+          background: "#3b82f6",
+          color: "white",
+          borderRadius: 10,
+          textDecoration: "none"
         }}>
-          Based on CEFR scale (A1 → C1). This is a fast placement estimate, not a certified exam.
-        </div>
-
-        {/* CTA */}
-        <a
-          href="/test"
-          style={{
-            display: "inline-block",
-            marginTop: 30,
-            padding: "12px 20px",
-            background: "#3b82f6",
-            color: "white",
-            borderRadius: 10,
-            textDecoration: "none",
-            fontWeight: 600
-          }}
-        >
-          Retake Test
+          Retake test
         </a>
 
       </div>
