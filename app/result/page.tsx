@@ -4,7 +4,9 @@ import { useSearchParams } from "next/navigation";
 
 export default function Result() {
   const params = useSearchParams();
-  const score = Number(params.get("score"));
+
+  const scoreParam = params.get("score");
+  const score = scoreParam ? Number(scoreParam) : 0;
 
   const questionsTotal = 20;
 
