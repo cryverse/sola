@@ -14,6 +14,52 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const btnPrimary: React.CSSProperties = {
+    padding: "14px 26px",
+    background: "#3b82f6",
+    color: "white",
+    borderRadius: 12,
+    textDecoration: "none",
+    fontWeight: 600,
+    display: "inline-block"
+  };
+
+  const btnSecondary: React.CSSProperties = {
+    padding: "14px 26px",
+    background: "#e2e8f0",
+    color: "#0f172a",
+    borderRadius: 12,
+    textDecoration: "none",
+    display: "inline-block"
+  };
+
+  const section: React.CSSProperties = {
+    padding: "80px 20px",
+    textAlign: "center"
+  };
+
+  const h2: React.CSSProperties = {
+    fontSize: 32,
+    fontWeight: 700,
+    color: "#0f172a"
+  };
+
+  const grid: React.CSSProperties = {
+    display: "flex",
+    gap: 20,
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginTop: 40
+  };
+
+  const card: React.CSSProperties = {
+    background: "white",
+    padding: 25,
+    borderRadius: 16,
+    width: 240,
+    boxShadow: "0 10px 25px rgba(0,0,0,0.05)"
+  };
+
   return (
     <main style={{
       minHeight: "100vh",
@@ -62,7 +108,7 @@ export default function Home() {
           fontSize: 18,
           color: "#475569",
           maxWidth: 650,
-          marginInline: "auto"
+          margin: "20px auto"
         }}>
           Sola is a fast English level test based on CEFR (A1 → C1).
           No registration. No waiting. Just real results in 5 minutes.
@@ -86,7 +132,6 @@ export default function Home() {
 
         </div>
 
-        {/* trust line */}
         <p style={{
           marginTop: 20,
           fontSize: 14,
@@ -120,10 +165,7 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" style={{
-        padding: "80px 20px",
-        textAlign: "center"
-      }}>
+      <section id="how" style={section}>
         <h2 style={h2}>How it works</h2>
 
         <div style={{
@@ -160,8 +202,7 @@ export default function Home() {
 
         <a href="/test" style={{
           ...btnPrimary,
-          marginTop: 25,
-          display: "inline-block"
+          marginTop: 25
         }}>
           Start Test
         </a>
@@ -180,48 +221,3 @@ export default function Home() {
     </main>
   );
 }
-
-/* STYLES */
-
-const btnPrimary = {
-  padding: "14px 26px",
-  background: "#3b82f6",
-  color: "white",
-  borderRadius: 12,
-  textDecoration: "none",
-  fontWeight: 600
-};
-
-const btnSecondary = {
-  padding: "14px 26px",
-  background: "#e2e8f0",
-  color: "#0f172a",
-  borderRadius: 12,
-  textDecoration: "none"
-};
-
-const section = {
-  padding: "80px 20px",
-  textAlign: "center"
-};
-
-const h2 = {
-  fontSize: 32,
-  fontWeight: 700
-};
-
-const grid = {
-  display: "flex",
-  gap: 20,
-  justifyContent: "center",
-  flexWrap: "wrap",
-  marginTop: 40
-};
-
-const card = {
-  background: "white",
-  padding: 25,
-  borderRadius: 16,
-  width: 240,
-  boxShadow: "0 10px 25px rgba(0,0,0,0.05)"
-};
