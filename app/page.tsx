@@ -1,5 +1,3 @@
-console.log("TEST UPDATE VERCEL");
-
 "use client";
 
 import { useEffect, useState } from "react";
