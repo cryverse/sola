@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { questions } from "../test/questions";
 import { calculateScore } from "../test/scoring";
@@ -98,7 +99,7 @@ export default function ResultClient() {
 
 /* ---------------- STYLES ---------------- */
 
-const base: React.CSSProperties = {
+const base: CSSProperties = {
   minHeight: "100vh",
   background: "#f8fafc",
   display: "flex",
@@ -108,7 +109,7 @@ const base: React.CSSProperties = {
   color: "#0f172a"
 };
 
-const card: React.CSSProperties = {
+const card: CSSProperties = {
   width: "100%",
   maxWidth: 800,
   background: "white",
@@ -117,26 +118,26 @@ const card: React.CSSProperties = {
   boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
 };
 
-const title = {
+const title: CSSProperties = {
   fontSize: 28,
   fontWeight: 700,
   color: "#0f172a"
 };
 
-const level = {
+const level: CSSProperties = {
   fontSize: 64,
   fontWeight: 800,
-  color: "#0f172a",
-  marginTop: 10
+  marginTop: 10,
+  color: "#0f172a"
 };
 
-const score = {
+const score: CSSProperties = {
   fontSize: 18,
   color: "#0f172a",
   marginTop: 10
 };
 
-const box = {
+const box: CSSProperties = {
   marginTop: 20,
   padding: 15,
   borderRadius: 10,
@@ -144,73 +145,75 @@ const box = {
   color: "#0f172a"
 };
 
-const buttons = {
+const buttons: CSSProperties = {
   marginTop: 25,
   display: "flex",
   gap: 10
 };
 
-const primary = {
+const primary: CSSProperties = {
   padding: "12px 18px",
   background: "#3b82f6",
   color: "white",
   borderRadius: 10,
   border: "none",
-  fontWeight: 600
+  fontWeight: 600,
+  cursor: "pointer"
 };
 
-const secondary = {
+const secondary: CSSProperties = {
   padding: "12px 18px",
   background: "#e2e8f0",
   color: "#0f172a",
   borderRadius: 10,
   border: "none",
-  fontWeight: 600
+  fontWeight: 600,
+  cursor: "pointer"
 };
 
-const h3 = {
+const h3: CSSProperties = {
   fontSize: 20,
   fontWeight: 700,
   color: "#0f172a"
 };
 
-const reviewList = {
+const reviewList: CSSProperties = {
   marginTop: 15,
   display: "flex",
   flexDirection: "column",
   gap: 12
 };
 
-const reviewItem = {
+const reviewItem: CSSProperties = {
   padding: 15,
   borderRadius: 12,
   border: "2px solid",
   background: "#fff"
 };
 
-const questionText = {
+const questionText: CSSProperties = {
   fontWeight: 700,
   fontSize: 15,
   color: "#0f172a"
 };
 
-const meta = {
+const meta: CSSProperties = {
   fontSize: 13,
   color: "#334155",
   marginTop: 4
 };
 
-const line = {
+const line: CSSProperties = {
   marginTop: 6,
   color: "#0f172a"
 };
 
-const correct = {
+const correct: CSSProperties = {
   marginTop: 4,
   color: "#16a34a"
 };
 
-const bold = {
+const bold: CSSProperties = {
   fontWeight: 700,
   color: "#0f172a"
 };
