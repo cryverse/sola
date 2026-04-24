@@ -9,9 +9,14 @@ export default function ResultPage() {
   const params = useSearchParams();
 
   const answersParam = params.get("answers");
-  const userAnswers: number[] = answersParam
-    ? JSON.parse(answersParam)
-    : [];
+
+  let userAnswers: number[] = [];
+
+  try {
+    userAnswers = answersParam ? JSON.parse(answersParam) : [];
+  } catch {
+    userAnswers = [];
+  }
 
   const result = calculateScore(userAnswers);
 
@@ -30,7 +35,7 @@ export default function ResultPage() {
 
         {/* INFO */}
         <div style={box}>
-          Based on CEFR scale (A1 → C1). Placement estimate only.
+          Based on CEFR scale (A1 → C1). This is a placement estimate, not an official exam.
         </div>
 
         {/* BUTTONS */}
@@ -69,11 +74,11 @@ export default function ResultPage() {
                     {q.level} • {q.type}
                   </p>
 
-                  {/* YOUR ANSWER */}
+                  {/* USER ANSWER */}
                   <p style={line}>
                     Your answer:{" "}
                     <span style={bold}>
-                      {userAnswer !== -1
+                      {userAnswer !== -1 && userAnswer !== undefined
                         ? q.options[userAnswer]
                         : "No answer"}
                     </span>
@@ -99,7 +104,7 @@ export default function ResultPage() {
   );
 }
 
-/* ---------------- STYLES (FIXED CONTRAST) ---------------- */
+/* ---------------- STYLES ---------------- */
 
 const base: React.CSSProperties = {
   minHeight: "100vh",
@@ -107,7 +112,8 @@ const base: React.CSSProperties = {
   display: "flex",
   justifyContent: "center",
   fontFamily: "Arial",
-  padding: 20
+  padding: 20,
+  color: "#0f172a"
 };
 
 const card: React.CSSProperties = {
@@ -122,19 +128,19 @@ const card: React.CSSProperties = {
 const title: React.CSSProperties = {
   fontSize: 28,
   fontWeight: 700,
-  color: "#111827"
+  color: "#0f172a"
 };
 
 const level: React.CSSProperties = {
   fontSize: 64,
   fontWeight: 800,
   marginTop: 10,
-  color: "#111827"
+  color: "#0f172a"
 };
 
 const score: React.CSSProperties = {
   fontSize: 18,
-  color: "#111827",
+  color: "#0f172a",
   marginTop: 10
 };
 
@@ -143,7 +149,7 @@ const box: React.CSSProperties = {
   padding: 15,
   borderRadius: 10,
   background: "#f1f5f9",
-  color: "#111827"
+  color: "#0f172a"
 };
 
 const buttons: React.CSSProperties = {
@@ -165,7 +171,7 @@ const primary: React.CSSProperties = {
 const secondary: React.CSSProperties = {
   padding: "12px 18px",
   background: "#e2e8f0",
-  color: "#111827",
+  color: "#0f172a",
   borderRadius: 10,
   border: "none",
   fontWeight: 600,
@@ -175,7 +181,7 @@ const secondary: React.CSSProperties = {
 const h3: React.CSSProperties = {
   fontSize: 20,
   fontWeight: 700,
-  color: "#111827"
+  color: "#0f172a"
 };
 
 const reviewList: React.CSSProperties = {
@@ -192,23 +198,21 @@ const reviewItem: React.CSSProperties = {
   background: "#ffffff"
 };
 
-/* 🔥 FIXED TEXT COLORS (KEY PART) */
-
 const questionText: React.CSSProperties = {
   fontWeight: 700,
   fontSize: 15,
-  color: "#111827" // было серое → теперь чёрное
+  color: "#0f172a"
 };
 
 const meta: React.CSSProperties = {
   fontSize: 13,
-  color: "#111827", // было бледное → теперь читаемое
+  color: "#334155",
   marginTop: 4
 };
 
 const line: React.CSSProperties = {
   marginTop: 6,
-  color: "#111827" // FIX
+  color: "#0f172a"
 };
 
 const correct: React.CSSProperties = {
@@ -218,5 +222,5 @@ const correct: React.CSSProperties = {
 
 const bold: React.CSSProperties = {
   fontWeight: 700,
-  color: "#111827"
+  color: "#0f172a"
 };
