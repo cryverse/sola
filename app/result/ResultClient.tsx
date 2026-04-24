@@ -1,6 +1,5 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { questions } from "../test/questions";
 import { calculateScore } from "../test/scoring";
@@ -25,6 +24,7 @@ export default function ResultClient() {
     <main style={base}>
       <div style={card}>
 
+        {/* HEADER */}
         <h1 style={title}>Your English Level</h1>
 
         <h2 style={level}>{result.level}</h2>
@@ -33,10 +33,12 @@ export default function ResultClient() {
           Score: {result.score} / {result.maxScore}
         </p>
 
+        {/* INFO */}
         <div style={box}>
           Based on CEFR scale (A1 → C1). Placement estimate only.
         </div>
 
+        {/* BUTTONS */}
         <div style={buttons}>
           <button onClick={() => router.push("/test")} style={primary}>
             Retake Test
@@ -47,6 +49,7 @@ export default function ResultClient() {
           </button>
         </div>
 
+        {/* REVIEW */}
         <div style={{ marginTop: 35 }}>
           <h3 style={h3}>Review Answers</h3>
 
@@ -99,7 +102,7 @@ export default function ResultClient() {
 
 /* ---------------- STYLES ---------------- */
 
-const base: CSSProperties = {
+const base: React.CSSProperties = {
   minHeight: "100vh",
   background: "#f8fafc",
   display: "flex",
@@ -109,7 +112,7 @@ const base: CSSProperties = {
   color: "#0f172a"
 };
 
-const card: CSSProperties = {
+const card: React.CSSProperties = {
   width: "100%",
   maxWidth: 800,
   background: "white",
@@ -118,26 +121,26 @@ const card: CSSProperties = {
   boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
 };
 
-const title: CSSProperties = {
+const title: React.CSSProperties = {
   fontSize: 28,
   fontWeight: 700,
   color: "#0f172a"
 };
 
-const level: CSSProperties = {
+const level: React.CSSProperties = {
   fontSize: 64,
   fontWeight: 800,
   marginTop: 10,
   color: "#0f172a"
 };
 
-const score: CSSProperties = {
+const score: React.CSSProperties = {
   fontSize: 18,
   color: "#0f172a",
   marginTop: 10
 };
 
-const box: CSSProperties = {
+const box: React.CSSProperties = {
   marginTop: 20,
   padding: 15,
   borderRadius: 10,
@@ -145,13 +148,13 @@ const box: CSSProperties = {
   color: "#0f172a"
 };
 
-const buttons: CSSProperties = {
+const buttons: React.CSSProperties = {
   marginTop: 25,
   display: "flex",
   gap: 10
 };
 
-const primary: CSSProperties = {
+const primary: React.CSSProperties = {
   padding: "12px 18px",
   background: "#3b82f6",
   color: "white",
@@ -161,7 +164,7 @@ const primary: CSSProperties = {
   cursor: "pointer"
 };
 
-const secondary: CSSProperties = {
+const secondary: React.CSSProperties = {
   padding: "12px 18px",
   background: "#e2e8f0",
   color: "#0f172a",
@@ -171,49 +174,49 @@ const secondary: CSSProperties = {
   cursor: "pointer"
 };
 
-const h3: CSSProperties = {
+const h3: React.CSSProperties = {
   fontSize: 20,
   fontWeight: 700,
   color: "#0f172a"
 };
 
-const reviewList: CSSProperties = {
+const reviewList: React.CSSProperties = {
   marginTop: 15,
   display: "flex",
   flexDirection: "column",
   gap: 12
 };
 
-const reviewItem: CSSProperties = {
+const reviewItem: React.CSSProperties = {
   padding: 15,
   borderRadius: 12,
   border: "2px solid",
   background: "#fff"
 };
 
-const questionText: CSSProperties = {
+const questionText: React.CSSProperties = {
   fontWeight: 700,
   fontSize: 15,
   color: "#0f172a"
 };
 
-const meta: CSSProperties = {
+const meta: React.CSSProperties = {
   fontSize: 13,
   color: "#334155",
   marginTop: 4
 };
 
-const line: CSSProperties = {
+const line: React.CSSProperties = {
   marginTop: 6,
   color: "#0f172a"
 };
 
-const correct: CSSProperties = {
+const correct: React.CSSProperties = {
   marginTop: 4,
   color: "#16a34a"
 };
 
-const bold: CSSProperties = {
+const bold: React.CSSProperties = {
   fontWeight: 700,
   color: "#0f172a"
 };
